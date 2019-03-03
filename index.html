@@ -2,6 +2,7 @@
   <head>
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <title>PIG DICE</title>
   </head>
@@ -10,47 +11,65 @@
      <div class="jumbotron">
        <h1>Pig Dice</h1>
      </div>
-     <div class="row">
-       <div class="col-md-4">
-         <div class="card">
-           <div class="card-header">
-             <h2>Player One:</h2>
-           </div>
-           <div class="card-body">
-             <img src="http://www.animatedimages.org/data/media/710/animated-dice-image-0014.gif" alt="dice" width="150"/> <br> </br>
-             <button id="roll1" class="btn btn-info" type="button">Roll</button>
-             <button id="hold1" class="btn btn-primary" type="button">Hold</button>
-           </div>
-           <div class="card-footer">
-             <p>Your score:</p>
-           </div>
+     <div class="landing-page">
+       <form id="login">
+         <div class="form-group">
+           <label for="playerone">Player One</label>
+           <input type="text" id="playerone" class="form-control" required>
          </div>
-       </div>
-       <div class="col-md-4">
-         <div class="card">
-           <div class="card-header">
-             <h2>Player Two:</h2>
-           </div>
-           <div class="card-body">
-             <img src="http://www.animatedimages.org/data/media/710/animated-dice-image-0014.gif" alt="dice" width="150"/> <br> </br>
-             <button id="roll1" class="btn btn-info" type="button">Roll</button>
-             <button id="hold2" class="btn btn-primary" type="button">Hold</button>
-           </div>
-           <div class="card-footer">
-             <p>Your score:</p>
-           </div>
+         <div class="form-group">
+           <label for="playertwo">Player Two</label>
+           <input type="text" id="playertwo" class="form-control" required>
          </div>
-       </div>
-       <div class="col-md-4">
-         <div class="card">
-           <div class="card-header">
-             <h2>The Winner is:</h2>
-           </div>
-           <div class="card-body">
+       </form>
+       <button id="start" class="btn btn-info" type="button">Start Game</button>
+     </div>
 
+     <div class="game">
+       <div class="row">
+         <div class="col-md-4">
+           <div class="card">
+             <div class="card-header">
+               <h2>Player One:<span id="player1"></span></h2>
+             </div>
+             <div class="card-body">
+               <img src="http://www.animatedimages.org/data/media/710/animated-dice-image-0014.gif" alt="dice" width="150"/> <br> </br>
+               <button id="roll1" class="btn btn-info" type="button">Roll</button>
+               <button id="hold1" class="btn btn-primary" type="button">Hold</button>
+             </div>
+             <div class="card-footer">
+               <p>Your turn score:<span id="score1"></span> </p>
+               <p>Your total:</p>
+             </div>
            </div>
-           <div class="card-footer">
-             <p>Congratulations! You have won the game.</p>
+         </div>
+         <div class="col-md-4">
+           <div class="card">
+             <div class="card-header">
+               <h2>Player Two:<span id="player2"></span></h2>
+             </div>
+             <div class="card-body">
+               <img src="http://www.animatedimages.org/data/media/710/animated-dice-image-0014.gif" alt="dice" width="150"/> <br> </br>
+               <button id="roll1" class="btn btn-info" type="button">Roll</button>
+               <button id="hold2" class="btn btn-primary" type="button">Hold</button>
+             </div>
+             <div class="card-footer">
+               <p>Your turn score:</p>
+               <p>Your total:</p>
+             </div>
+           </div>
+         </div>
+         <div class="col-md-4">
+           <div class="card">
+             <div class="card-header">
+               <h2>The Winner is:</h2>
+             </div>
+             <div class="card-body">
+
+             </div>
+             <div class="card-footer">
+               <p>Congratulations! You have won the game.</p>
+             </div>
            </div>
          </div>
        </div>
