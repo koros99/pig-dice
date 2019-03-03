@@ -40,3 +40,15 @@ Turn.prototype.hold = function() {
   this.totalscore += this.turnscore;
   alert(this.playerName + ", your turn's up!")
 }
+
+Turn.prototype.checkForWinner = function() {
+  if (this.totalscore > 99) {
+    alert("Congratulations " + this.playerName + "!!! You have won the game")
+  }
+};
+
+Turn.prototype.restartGame = function() {
+  this.roll = 0;
+  this.turnscore = 0;
+  this.totalscore = 0;
+};
