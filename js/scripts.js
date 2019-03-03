@@ -35,3 +35,8 @@ Turn.prototype.checkForOne = function() {
     this.turnscore += this.roll;
   }
 };
+
+Turn.prototype.hold = function() {
+  this.totalscore += this.turnscore;
+  alert(this.playerName + ", your turn's up!")
+}
