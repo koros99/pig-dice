@@ -1,3 +1,9 @@
+body{
+  background-image: url("https://wallpapermemory.com/uploads/470/dice-background-hd-1440x900-423186.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .game{
   display: none;
 }
