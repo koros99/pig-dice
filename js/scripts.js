@@ -2,17 +2,16 @@
 var playerOne = {};
 var playerTwo = {};
 
-var rollValue = function() {
-  return Math.floor(6 * Math.random()) + 1;
-}
-
-function Player(turn, name) {
+var Player = function(name) {
   this.roll = 0;
   this.turnscore = 0;
   this.totalscore = 0;
-  this.turn = turn;
   this.playerName = name;
-}
+};
+
+var rollValue = function() {
+  return Math.floor(6 * Math.random()) + 1;
+};
 
 Player.prototype.checkOne = function() {
   if (this.roll === 1) {
@@ -25,8 +24,9 @@ Player.prototype.checkOne = function() {
 
 Player.prototype.hold = function() {
   this.totalscore += this.turnscore;
+  this.turnscore = 0;
   alert(this.playerName + ", your turn's up!")
-}
+};
 
 Player.prototype.checkForWinner = function() {
   if (this.totalscore > 99) {
@@ -44,51 +44,50 @@ Player.prototype.restartGame = function() {
 $(document).ready(function() {
   $("button#start").click(function(event) {
     event.preventDefault();
-
-    var playerOne = new Player();
-    var playerTwo = new Player();
     $(".game").fadeIn();
-    $(".landing-page").fadeOut();
+    $(".landing-page").hide();
+    $("#rules").hide();
 
     var playerOneInput = $("input#playerone").val();
+    playerOne = new Player(playerOneInput);
+
     var playerTwoInput = $("input#playertwo").val();
+    playerTwo = new Player(playerTwoInput);
 
     $("#player1").text(playerOneInput);
     $("#player2").text(playerTwoInput);
 
-    playerOne.playerName = playerOne;
-    playerTwo.playerName = playerTwo;
+    playerOne.playerName = playerOneInput;
+    playerTwo.playerName = playerTwoInput;
   });
 
-  $("button#roll1").click(function(event) {
-    event.preventDefault();
+  $("button#roll1").click(function() {
     playerOne.roll = rollValue();
     $("#diceroll1").text(playerOne.roll);
-    playerOne.checkone();
+    playerOne.checkOne();
     $("#turnscore1").text(playerOne.turnscore);
   });
 
-  $("button#roll2").click(function(event) {
-    event.preventDefault();
+  $("button#roll2").click(function() {
     playerTwo.roll = rollValue();
     $("#diceroll2").text(playerTwo.roll);
-    playerTwo.checkone();
+    playerTwo.checkOne();
     $("#turnscore2").text(playerTwo.turnscore);
   });
 
-  $("button#hold1").click(function(event) {
+  $("button#hold1").click(function() {
     playerOne.hold();
-    $("#total1").text(player1.totalscore);
+    $("#total1").text(playerOne.totalscore);
     $("#turnscore1").empty();
     $("diceroll1").empty();
-    player1.checkForWinner();
+    playerOne.checkForWinner();
   });
 
-  $("button#hold2").click(function(event) {
-    playerOne.hold();
-    $("#total2").text(player2.totalscore);
+  $("button#hold2").click(function() {
+    playerTwo.hold();
+    $("#total2").text(playerTwo.totalscore);
     $("#turnscore2").empty();
     $("diceroll2").empty();
-    player2.checkForWinner();
+    playerTwo.checkForWinner();
   });
 });
