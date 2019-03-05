@@ -25,47 +25,77 @@ Player.prototype.checkOne = function() {
 Player.prototype.hold = function() {
   this.totalscore += this.turnscore;
   this.turnscore = 0;
-  alert(this.playerName + ", your turn's up!")
+  alert(this.playerName + ", your turn's up!");
 };
 
 Player.prototype.checkForWinner = function() {
-  if (this.totalscore > 99) {
-    alert("Congratulations " + this.playerName + "!!! You have won the game")
+  if (this.totalscore > 19) {
+    alert("Congratulations " + this.playerName + "!!! You have won the game");
+    $("#winner").text(this.playerName);
+    $("#endgame").css({
+      opacity: 1
+    });
   }
-};
-
-Player.prototype.restartGame = function() {
-  this.roll = 0;
-  this.turnscore = 0;
-  this.totalscore = 0;
 };
 
 //front-end logic
 $(document).ready(function() {
   $("button#start").click(function(event) {
     event.preventDefault();
-    $(".game").fadeIn();
-    $(".landing-page").hide();
-    $("#rules").hide();
-
     var playerOneInput = $("input#playerone").val();
     playerOne = new Player(playerOneInput);
 
     var playerTwoInput = $("input#playertwo").val();
     playerTwo = new Player(playerTwoInput);
 
+    if (!playerOneInput || !playerTwoInput) {
+      alert("You must fill in names of both players.");
+      return 0;
+    } else if (playerOneInput == playerTwoInput) {
+      alert("The two players' names must be different.");
+      return 0;
+    }
+    $(".game").fadeIn();
+    $(".landing-page").hide();
+    $("#rules").hide();
+
     $("#player1").text(playerOneInput);
     $("#player2").text(playerTwoInput);
 
     playerOne.playerName = playerOneInput;
     playerTwo.playerName = playerTwoInput;
+
+    $("#endgame").css({
+      opacity: 0.1
+    });
   });
+
 
   $("button#roll1").click(function() {
     playerOne.roll = rollValue();
     $("#diceroll1").text(playerOne.roll);
     playerOne.checkOne();
     $("#turnscore1").text(playerOne.turnscore);
+    if (playerOne.roll === 1) {
+      $("#card1").css({
+        opacity: 0.3
+      });
+      $("#card2").css({
+        opacity: 1
+      });
+      $("button#hold1").css({
+        opacity: 0.1
+      });
+      $("button#roll1").css({
+        opacity: 0.1
+      });
+      $("button#hold2").css({
+        opacity: 1
+      });
+      $("button#roll2").css({
+        opacity: 1
+      });
+    }
   });
 
   $("button#roll2").click(function() {
@@ -73,6 +103,26 @@ $(document).ready(function() {
     $("#diceroll2").text(playerTwo.roll);
     playerTwo.checkOne();
     $("#turnscore2").text(playerTwo.turnscore);
+    if (playerTwo.roll === 1) {
+      $("#card2").css({
+        opacity: 0.3
+      });
+      $("#card1").css({
+        opacity: 1
+      });
+      $("button#hold1").css({
+        opacity: 1
+      });
+      $("button#roll1").css({
+        opacity: 1
+      });
+      $("button#hold2").css({
+        opacity: 0.1
+      });
+      $("button#roll2").css({
+        opacity: 0.1
+      });
+    }
   });
 
   $("button#hold1").click(function() {
@@ -81,6 +131,24 @@ $(document).ready(function() {
     $("#turnscore1").empty();
     $("diceroll1").empty();
     playerOne.checkForWinner();
+    $("#card1").css({
+      opacity: 0.3
+    });
+    $("#card2").css({
+      opacity: 1
+    });
+    $("button#hold1").css({
+      opacity: 0.1
+    });
+    $("button#roll1").css({
+      opacity: 0.1
+    });
+    $("button#hold2").css({
+      opacity: 1
+    });
+    $("button#roll2").css({
+      opacity: 1
+    });
   });
 
   $("button#hold2").click(function() {
@@ -89,5 +157,27 @@ $(document).ready(function() {
     $("#turnscore2").empty();
     $("diceroll2").empty();
     playerTwo.checkForWinner();
+    $("#card2").css({
+      opacity: 0.3
+    });
+    $("#card1").css({
+      opacity: 1
+    });
+    $("button#hold2").css({
+      opacity: 0.1
+    });
+    $("button#roll2").css({
+      opacity: 0.1
+    });
+    $("button#hold1").css({
+      opacity: 1
+    });
+    $("button#roll1").css({
+      opacity: 1
+    });
+  });
+
+  $("button#restart").click(function() {
+    location.reload();
   });
 });
