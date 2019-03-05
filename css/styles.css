@@ -3,7 +3,17 @@ body{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 .game{
   display: none;
+}
+.instructions, .card{
+  background-color: rgb(102, 128, 170, 0.6);
+}
+#hold1, #hold2{
+  float: right;
+}
+img{
+  margin-left: 25%;
 }
