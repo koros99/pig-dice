@@ -35,6 +35,7 @@ Player.prototype.checkForWinner = function() {
     $("#endgame").css({
       opacity: 1
     });
+    $("#card1, #card2").hide();
   }
 };
 
