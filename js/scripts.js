@@ -29,7 +29,7 @@ Player.prototype.hold = function() {
 };
 
 Player.prototype.checkForWinner = function() {
-  if (this.totalscore > 19) {
+  if (this.totalscore > 99) {
     alert("Congratulations " + this.playerName + "!!! You have won the game");
     $("#winner").text(this.playerName);
     $("#endgame").css({
