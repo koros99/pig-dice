@@ -10,7 +10,7 @@ var Player = function(name) {
 };
 
 var rollValue = function() {
-  return Math.floor(6 * Math.random()) + 1;
+  return Math.round(5 * Math.random()) + 1;
 };
 
 Player.prototype.checkOne = function() {
@@ -130,7 +130,7 @@ $(document).ready(function() {
     playerOne.hold();
     $("#total1").text(playerOne.totalscore);
     $("#turnscore1").empty();
-    $("diceroll1").empty();
+    $("#diceroll1").empty();
     playerOne.checkForWinner();
     $("#card1").css({
       opacity: 0.3
@@ -156,7 +156,7 @@ $(document).ready(function() {
     playerTwo.hold();
     $("#total2").text(playerTwo.totalscore);
     $("#turnscore2").empty();
-    $("diceroll2").empty();
+    $("#diceroll2").empty();
     playerTwo.checkForWinner();
     $("#card2").css({
       opacity: 0.3
