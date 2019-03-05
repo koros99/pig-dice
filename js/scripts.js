@@ -78,6 +78,8 @@ $(document).ready(function() {
     playerOne.checkOne();
     $("#turnscore1").text(playerOne.turnscore);
     if (playerOne.roll === 1) {
+      $("#diceroll1").empty();
+      $("#turnscore1").empty();
       $("#card1").css({
         opacity: 0.3
       });
@@ -105,6 +107,8 @@ $(document).ready(function() {
     playerTwo.checkOne();
     $("#turnscore2").text(playerTwo.turnscore);
     if (playerTwo.roll === 1) {
+      $("#diceroll2").empty();
+      $("#turnscore2").empty();
       $("#card2").css({
         opacity: 0.3
       });
