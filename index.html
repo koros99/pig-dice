@@ -2,6 +2,7 @@
   <head>
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Advent+Pro|Coda|Courgette|Dosis|Kreon" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <title>PIG DICE</title>
@@ -9,16 +10,16 @@
   <body>
    <div class="container">
      <div class="jumbotron instructions">
-       <h1>Pig Dice</h1>
+       <h1 id="head">Pig Dice</h1>
        <div class="landing-page">
          <form id="login">
            <div class="form-grid">
              <label for="playerone">Player One</label>
-             <input type="text" id="playerone" class="form-control" required>
+             <input type="text" id="playerone" class="form-control"required>
            </div>
            <div class="form-grid">
              <label for="playertwo">Player Two</label>
-             <input type="text" id="playertwo" class="form-control" required>
+             <input type="text" id="playertwo" class="form-control"required>
            </div>
          </form>
          <button id="start" class="btn btn-info" type="button">Start Game</button>
@@ -70,16 +71,17 @@
              </div>
            </div>
          </div>
-         <div class="col-md-4">
+         <div class="col-md-4" id="endgame">
            <div class="card">
              <div class="card-header">
                <h2>The Winner is:</h2>
              </div>
              <div class="card-body">
-
+               <img src="images/3.png" alt="winner" width="150"/>
              </div>
              <div class="card-footer">
-               <p>Congratulations! You have won the game.</p>
+               <p>Congratulations, <span id="winner"></span>!! You have won the game.</p>
+               <button id="restart" class="btn btn-success">Restart Game</button>
              </div>
            </div>
          </div>
