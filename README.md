@@ -17,9 +17,9 @@ Interested users can fork or clone this project from their github accounts.
 |   Behavior   | Outcome    |
 | :------------- | :------------- |
 | Player rolls any number between two and six    | Player gets a corresponding score value for each number    |
-| Player consecutively rolls any numbers between two and six in one round   | Player gets a turn score equal to the total of each roll value, for that round.   |
-| Player Rolls 1     | Turn score for that round equals zero. Player loses any other scores they had scored for that round.      |
-| Player Holds   | Player scores a round score equal to the sum of each roll value. Play switches to the next player.   |
+| Player consecutively rolls any numbers between two and six in one round   | Player gets a turn score equal to the sum of all roll values in that round.   |
+| Player Rolls 1     | Turn score for that round equals zero. Player loses any other scores they had scored in that round.      |
+| Player Holds   | Player scores a turn score equal to the sum of all roll values in that round. Play switches to the next player.   |
 | Player scores a total equal to or greater than 100  | Player wins the game.   |
 
 ## Technologies used
