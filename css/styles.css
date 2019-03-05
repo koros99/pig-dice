@@ -9,11 +9,27 @@ body{
   display: none;
 }
 .instructions, .card{
-  background-color: rgb(102, 128, 170, 0.6);
+  background-color: rgba(102, 128, 170, 0.6);
+}
+#head, .card-header{
+  font-family: 'Kreon', serif;
 }
 #hold1, #hold2{
   float: right;
 }
 img{
   margin-left: 25%;
+}
+#rules{
+  font-family: 'Courgette', cursive;
+}
+label, .card-body{
+  font-family: 'Advent Pro', sans-serif;
+}
+button, .card-footer{
+  font-family: 'Coda', cursive;
+}
+.not-your-turn{
+  background-color: rgba(102, 128, 170, 0.2);
+  opacity: 0.2;
 }
